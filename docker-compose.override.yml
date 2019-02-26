@@ -1,0 +1,26 @@
+version: '3'
+services:
+  docker-deploy-demo:
+    env_file: .env
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
+    volumes:
+      - ./:/app/
+    networks:
+      - docker-deploy-demo-network
+
+  docker-postgres:
+    image: postgres:10.0-alpine
+    env_file: .env
+    volumes:
+      - pg-data-volume:/var/lib/postgresql/data
+    ports:
+      - '${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}'
+    networks:
+      - docker-deploy-demo-network
+
+volumes:
+  pg-data-volume:
+
+networks:
+  docker-deploy-demo-network:
