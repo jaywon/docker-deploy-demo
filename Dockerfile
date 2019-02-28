@@ -4,13 +4,13 @@ FROM node:10.15.1-alpine
 RUN apk update && apk upgrade
 
 # RUN adduser webuser -
-ARG APP_DIR=/app
+#ARG APP_DIR=/app
 
 # TODO: Create and user non-privileged user acccount
 # USER webuser # su webuser
 
 # Change working directory to application directory
-WORKDIR ${APP_DIR}
+#WORKDIR ${APP_DIR}
 
 # Copy package.json to /app directory
 COPY package.json .

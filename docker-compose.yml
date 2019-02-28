@@ -1,7 +1,5 @@
 version: '3'
 services:
   docker-deploy-demo:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     image: ${IMAGE_REPO}:${IMAGE_VERSION}
